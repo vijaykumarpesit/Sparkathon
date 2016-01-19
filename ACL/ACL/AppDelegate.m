@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <IMFCore/IMFCore.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +18,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [[IMFClient sharedInstance]
+     initializeWithBackendRoute:@"http://AC.au-syd.mybluemix.net"
+     backendGUID:@"6a97da2e-7efc-49ea-bdc5-32c2b1ec6deb"];
+    
+    NSString *requestPath = [NSString stringWithFormat:@"%@/protected",
+                             [[IMFClient sharedInstance] backendRoute]];
+    
+    IMFResourceRequest *request =  [IMFResourceRequest requestWithPath:requestPath
+                                                                method:@"GET"];
+    
+    [request sendWithCompletionHandler:^(IMFResponse *response, NSError *error) {
+        if (error){
+            NSLog(@"Error :: %@", [error description]);
+        } else {
+            NSLog(@"Response :: %@", [response responseText]);
+        }
+    }];
     return YES;
 }
 
