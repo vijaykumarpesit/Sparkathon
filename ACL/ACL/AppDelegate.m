@@ -22,7 +22,7 @@
     // Override point for customization after application launch.
     
     [[IMFClient sharedInstance]
-     initializeWithBackendRoute:@"http://PAF.au-syd.mybluemix.net"
+     initializeWithBackendRoute:@"https://PAF.au-syd.mybluemix.net"
      backendGUID:@"f354585b-1160-43d0-ab5e-5a8ddae68068"];
     
     [[IMFGoogleAuthenticationHandler sharedInstance] registerWithDefaultDelegate];
