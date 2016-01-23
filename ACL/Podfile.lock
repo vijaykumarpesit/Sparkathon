@@ -1,17 +1,21 @@
 PODS:
-  - Charts (2.1.6)
+  - google-plus-ios-sdk (1.7.1)
   - IMFCore (1.0.11)
+  - IMFGoogleAuthentication (1.0.11):
+    - google-plus-ios-sdk (~> 1.7)
+    - IMFCore (~> 1.0.0)
   - IMFPush (1.0.0):
     - IMFCore (~> 1.0.0)
 
 DEPENDENCIES:
-  - Charts
   - IMFCore
+  - IMFGoogleAuthentication
   - IMFPush
 
 SPEC CHECKSUMS:
-  Charts: 5e1e5ac23898e5b09d226a2fc3e9d86bc281937e
+  google-plus-ios-sdk: 47adbe03ea904bdb7aa1c0eca282a23c4686e1bc
   IMFCore: 6a28c4a777819b9f957bf8c2644e3ebf72f2ccb6
+  IMFGoogleAuthentication: 80454cd85cb024e31beb59c1f1a9664e28bec54e
   IMFPush: 40412a5cc2b4cd9e6db9034d58d0eaa16f0d0f58
 
 COCOAPODS: 0.39.0

@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Charts.xcscheme</key>
+		<key>IMFGoogleAuthentication.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0E9810E0DF1843BC12555D46F3FCD0EA</key>
+		<key>11C94FBBBC4B0D15663DF29725C2B94A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>24090FBCEF7A50AE384678B5C071804B</key>
+		<key>E93157F52AE356ABA44A21F5020DEE67</key>
 		<dict>
 			<key>primary</key>
 			<true/>

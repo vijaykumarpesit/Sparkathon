@@ -1,10 +1,6 @@
-EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/IMFCore/Frameworks" "${PODS_ROOT}/IMFPush/Frameworks"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/google-plus-ios-sdk/google-plus-ios-sdk-1.7.1/" "$(PODS_ROOT)/IMFCore/Frameworks" "${PODS_ROOT}/IMFCore/Frameworks" "${PODS_ROOT}/IMFPush/Frameworks" "${PODS_ROOT}/google-plus-ios-sdk/google-plus-ios-sdk-1.7.1" "${PODS_ROOT}/google-plus-ios-sdk/google-plus-ios-sdk-1.7.1"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/IMFCore" "${PODS_ROOT}/Headers/Public/IMFPush"
-LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/Charts.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/IMFCore" -isystem "${PODS_ROOT}/Headers/Public/IMFPush"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"stdc++.6" -l"z" -framework "Charts" -framework "IMFCore" -framework "IMFPush"
-OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
-PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/IMFCore" "${PODS_ROOT}/Headers/Public/IMFGoogleAuthentication" "${PODS_ROOT}/Headers/Public/IMFPush" "${PODS_ROOT}/Headers/Public/google-plus-ios-sdk"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/IMFCore" -isystem "${PODS_ROOT}/Headers/Public/IMFGoogleAuthentication" -isystem "${PODS_ROOT}/Headers/Public/IMFPush" -isystem "${PODS_ROOT}/Headers/Public/google-plus-ios-sdk"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"IMFGoogleAuthentication" -l"stdc++.6" -l"z" -framework "AddressBook" -framework "AssetsLibrary" -framework "CoreGraphics" -framework "CoreLocation" -framework "CoreMotion" -framework "CoreText" -framework "Foundation" -framework "GoogleOpenSource" -framework "GooglePlus" -framework "IMFCore" -framework "IMFPush" -framework "MediaPlayer" -framework "Security" -framework "SystemConfiguration" -framework "UIKit"
 PODS_ROOT = ${SRCROOT}/Pods

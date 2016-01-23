@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <IMFCore/IMFCore.h>
+#import <IMFGoogleAuthentication/IMFGoogleAuthenticationHandler.h>
+
 
 @interface AppDelegate ()
 
@@ -20,14 +22,21 @@
     // Override point for customization after application launch.
     
     [[IMFClient sharedInstance]
-     initializeWithBackendRoute:@"http://AC.au-syd.mybluemix.net"
-     backendGUID:@"6a97da2e-7efc-49ea-bdc5-32c2b1ec6deb"];
+     initializeWithBackendRoute:@"http://PAF.au-syd.mybluemix.net"
+     backendGUID:@"f354585b-1160-43d0-ab5e-5a8ddae68068"];
+    
+    [[IMFGoogleAuthenticationHandler sharedInstance] registerWithDefaultDelegate];
+
     
     NSString *requestPath = [NSString stringWithFormat:@"%@/protected",
                              [[IMFClient sharedInstance] backendRoute]];
     
     IMFResourceRequest *request =  [IMFResourceRequest requestWithPath:requestPath
                                                                 method:@"GET"];
+    [[IMFAuthorizationManager sharedInstance] obtainAuthorizationHeaderWithCompletionHandler:^(IMFResponse *response, NSError *error) {
+       
+        NSLog(@"%@",response);
+    }];
     
     [request sendWithCompletionHandler:^(IMFResponse *response, NSError *error) {
         if (error){
@@ -54,8 +63,20 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[IMFGoogleAuthenticationHandler sharedInstance] handleDidBecomeActive];
 }
+
+- (BOOL)application: (UIApplication *)application openURL: (NSURL *)url
+  sourceApplication: (NSString *)sourceApplication annotation: (id)annotation {
+    
+    BOOL shouldHandleGoogleURL = [GPPURLHandler handleURL:url
+                                        sourceApplication:sourceApplication annotation:annotation];
+    
+    [[IMFGoogleAuthenticationHandler sharedInstance] handleOpenURL:shouldHandleGoogleURL];
+    return  shouldHandleGoogleURL;
+}
+
+
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
